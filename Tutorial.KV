@@ -1,0 +1,131 @@
+
+# Define the kv file
+WindowManager:
+    FirstPage:
+    SecondPage:
+    HomePage:
+
+<FirstPage>:
+    name: "first"
+    size_hint: 0.7, 1
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    GridLayout:
+        spacing: "5dp"
+        cols: 1
+
+        GridLayout:
+            spacing: "5dp"
+            cols: 2
+
+            Label:
+                text: "Name"
+                color: 0, 0, 0, 1
+                bold: True
+                font_size: "22dp"
+
+            TextInput:
+                multiline: False
+
+            Label:
+                text: "Id"
+                color: 0, 0, 0, 1
+                bold: True
+                font_size: "22dp"
+
+            TextInput:
+                multiline: False
+
+            Label:
+                text: "Department"
+                color: 0, 0, 0, 1
+                bold: True
+                font_size: "22dp"
+
+            TextInput:
+                multiline: False
+
+            Label:
+                text: "Group"
+                color: 0, 0, 0, 1
+                bold: True
+                font_size: "22dp"
+
+            TextInput:
+                multiline: False
+
+        Button:
+            text: "Register Here"
+            bold: True
+            font_size: "30dp"
+            background_color: 1, 1, 0, 1
+            size_hint: 1, 0.4
+            on_press: root.on_press_button()
+
+        Button:
+            text: "LogIn"
+            bold: True
+            font_size: "30dp"
+            background_color: 1, 1, 0, 1
+            size_hint: 1, 0.4
+            on_release: app.root.current = "second"
+
+        Label:
+            text: root.my_text
+            color: 1, 0, 1, 1
+            bold: True
+            font_size: "30dp"
+<SecondPage>:
+    name: "second"
+    size_hint: 0.7, 0.8
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+    GridLayout:
+        spacing: "5dp"
+        cols: 1
+
+        GridLayout:
+            spacing: "5dp"
+            cols: 2
+
+            Label:
+                text: "User Name"
+                color: 0, 0, 0, 1
+                bold: True
+                font_size: "22sp"
+
+            TextInput:
+                multiline: False
+                size_hint: 1, None
+                height: "50dp"
+
+            Label:
+                text: "User Id"
+                color: 0, 0, 0, 1
+                bold: True
+                font_size: "22sp"
+
+            TextInput:
+                multiline: False
+                size_hint: 1, None
+                height: "50dp"
+
+        Button:
+            text: "Home Page"
+            bold: True
+            font_size: "30sp"
+            background_color: 1, 1, 0, 1
+            size_hint: 1, 0.4
+            on_release: app.root.current = "home"
+
+
+<HomePage>:
+    name: "home"
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Welcome to SmartAI Digital Solutions"
+
+        Button:
+            text: "Back to login"
+            on_release: app.root.current = "second"
